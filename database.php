@@ -1,16 +1,16 @@
 <?php
 	$dbuser = "root";
-	$dbpass = "1234";
+	$dbpass = "";
 	$dbhost = "localhost:3306";
 	$dbname = "librarydatabase";
 
 	$connection = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
 
 	if($connection){
-		echo "Connected to DATABASE<br>";
+		//echo "Connected to DATABASE<br>";
 	}
 	else{
-		echo "NOT CONNECTED TO DATABASE<br>";
+		//echo "NOT CONNECTED TO DATABASE<br>";
 	}
 
 
@@ -29,16 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$publisher = $_POST['publ'];
 		$avail=$_POST['avail'];
 		$res=$_POST['res'];
-		print("Elements collected<br>");
-		print_r($_POST);
-		print("<br>");
-	}
-else{
-		echo "Elements could not be collected<br>";
-	}
-//$count=count($_POST['genre']);
-	
-	$sql = "INSERT librarydatabase.novel(Book_Id,ISBN,Book_Name,Book_Language,Book_Availability,Book_Reserve,Auth_Id,Publ_Id)
+		//print("Elements collected<br>");
+		//print_r($_POST);
+		//print("<br>");
+			$sql = "INSERT librarydatabase.novel(Book_Id,ISBN,Book_Name,Book_Language,Book_Availability,Book_Reserve,Auth_Id,Publ_Id)
 	VALUES('$bid','$isbn','$bname','$language','$avail','$res','$author','$publisher')";
 	//for($i=0;$i<$count;$i++){
 	$sql1 = "INSERT librarydatabase.genre(B_Id,B_Genre)
@@ -50,10 +44,10 @@ else{
 	$result1 = mysqli_query($connection,$sql1);
 	$result2 = mysqli_query($connection,$sql2);
 	if($result){
-		echo "inserted successfully<br>";
+		//echo "inserted successfully<br>";
 	}
 	else{
-		echo "Could not insert in<br>";
+		//echo "Could not insert in<br>";
 	}
 	
 	
@@ -63,37 +57,46 @@ else{
 	$result = mysqli_query($connection,$sql);
 $result1 = mysqli_query($connection,$sql1);
 $result2 = mysqli_query($connection,$sql2);
-	echo "<table style='border:2px solid black;'><tr><th>BOOK ID</th><th>ISBN</th><th>BOOK NAME</th><th>BOOK LANGUAGE</th><th>BOOK AVAILABILITY</th><th>BOOK RESERVE</th><th>AUTHOR ID</th><th>PUBLISHER ID</th></tr>";
+	echo "<table style='border:2px solid black;background-color:pink;width:100%'><tr><th>BOOK ID</th><th style='border:2px solid black;'>ISBN</th><th style='border:2px solid black;'>BOOK NAME</th><th style='border:2px solid black;'>BOOK LANGUAGE</th><th style='border:2px solid black;'>BOOK AVAILABILITY</th><th style='border:2px solid black;'>BOOK RESERVE</th><th style='border:2px solid black;'>AUTHOR ID</th><th style='border:2px solid black;'>PUBLISHER ID</th></tr>";
 	while($row = mysqli_fetch_array($result)){
 		echo "<tr>";
-		echo "<td>$row[Book_Id]</td>";
-		echo "<td>$row[ISBN]</td>";
-		echo "<td>$row[Book_Name]</td>";
-		echo "<td>$row[Book_Language]</td>";
-		echo "<td>$row[Book_Availability]</td>";
-		echo "<td>$row[Book_Reserve]</td>";
-		echo "<td>$row[Auth_Id]</td>";
-		echo "<td>$row[Publ_Id]</td>";
+		echo "<td style='border:2px solid black;'>$row[Book_Id]</td>";
+		echo "<td style='border:2px solid black;'>$row[ISBN]</td>";
+		echo "<td style='border:2px solid black;'>$row[Book_Name]</td>";
+		echo "<td style='border:2px solid black;'>$row[Book_Language]</td>";
+		echo "<td style='border:2px solid black;'>$row[Book_Availability]</td>";
+		echo "<td style='border:2px solid black;'>$row[Book_Reserve]</td>";
+		echo "<td style='border:2px solid black;'>$row[Auth_Id]</td>";
+		echo "<td style='border:2px solid black;'>$row[Publ_Id]</td>";
 		echo "</tr>";
 	}
 	echo "</table>";
-
-echo "<table style='border:2px solid black;'><tr><th>BOOK ID</th><th>BOOK GENRE</th></tr>";
+echo "<br><br>";
+echo "<table style='border:2px solid black;background-color:pink;width:100%'><tr><th style='border:2px solid black;'>BOOK ID</th><th style='border:2px solid black;'>BOOK GENRE</th></tr>";
 	while($row = mysqli_fetch_array($result1)){
 		echo "<tr>";
-		echo "<td>$row[B_Id]</td>";
-		echo "<td>$row[B_Genre]</td>";
+		echo "<td style='border:2px solid black;'>$row[B_Id]</td>";
+		echo "<td style='border:2px solid black;'>$row[B_Genre]</td>";
 		echo "</tr>";
 	}
+
 	echo "</table>";
-	echo "<table style='border:2px solid black;'><tr><th>BOOK ID</th><th>BOOK LOCATION</th></tr>";
+	echo "<br><br>";
+	echo "<table style='border:2px solid black;background-color:pink;width:100%;align:center'><tr><th style='border:2px solid black;'>BOOK ID</th><th style='border:2px solid black;'>BOOK LOCATION</th></tr>";
 	while($row = mysqli_fetch_array($result2)){
 		echo "<tr>";
-		echo "<td>$row[Boo_Id]</td>";
-		echo "<td>$row[B_Location]</td>";
+		echo "<td style='border:2px solid black;'>$row[Boo_Id]</td>";
+		echo "<td style='border:2px solid black;'>$row[B_Location]</td>";
 		echo "</tr>";
 	}
 	echo "</table>";
+	}
+else{
+		//echo "Elements could not be collected<br>";
+	}
+//$count=count($_POST['genre']);
+	
+
 
  
 ?>

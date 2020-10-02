@@ -2,11 +2,11 @@
 <html>
 <head>
 <title>
-DELETE</title>
+DELETE MEMBER</title>
 <style>
 body
 {
-	background-color:#F2BB66;
+	background-color:lightseagreen;
 	
 }
 form
@@ -17,7 +17,7 @@ font-size:25px;
 }
 .container
 {
-	background-color:#FBB117;
+	background-color:darkturquoise;
 	
     /*position:fixed;
     top: 50%;
@@ -52,39 +52,11 @@ margin-left:20%;
 <center><div class="container">
 <h2>Details of Old Member</h2>
 
-<form method="POST" action="delmem.php">
-   Name:<br>
-    <input id="txt" type="text" name="mname">
-  <br>
-  Email ID<br>
-   <input id="txt" type="email" name="mail" >
-   <br>
-  Contact Number<br>
-   <input id="txt" type="number" name="cont_number" >
-   <BR>
-   DOB:<br>
-  <input type="date" id="txt" name="bday">
-  <br>
-  Membership Type:<br>
-  <select name="type">
-  <option value="--null--" checked>--null--</option>
-  <option value="2 Books and 2 Periodicals">2 books and 2 periodicals</option>
-  <option value="1 book and 1 periodical">1 book and 1 periodical</option>
-  </select>
-   <br>
-   Membership Start:<br>
-   <input type="date" id="txt" name="memstrt">
-   <br>
-   Membership End:<br>
-   <input type="date" id="txt" name="memfin"><br>
+<form method="POST" onsubmit="return confirm('Confirm Updation?');" action="delmem.php">
    Member ID<br>
    <input id="txt" type="number" name="memid" >
    <BR>
-   Member Password:<br>
-   <input type="password" id="txt" name="mempswd">
-   <br> Librarian ID<br>
-   <input id="txt" type="number" name="libid" >
-   <BR><br>
+  <br>
   <input class="sub" type="submit" value="Submit" name="Submit">
   <!-- MEMBERSHIP START AND END DATE-- WHEN THEY SEARCH FOR MEMBER, DOB, MEMBERSHIP END , PASSWORD-->
  

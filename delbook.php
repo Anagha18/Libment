@@ -6,7 +6,7 @@ DELETE BOOK</title>
 <style>
 body
 {
-	background-color:#254117;
+	background-color:lightseagreen;
 }
 form
 {
@@ -16,7 +16,7 @@ form
 }
 .container
 {
-	background-color:#437C17;
+	background-color:darkturquoise;
 	
   /*  position:fixed;
     top: 50%;
@@ -58,7 +58,7 @@ form
 <center><div class="container">
 <h2>Details of Old Book</h2>
 
-<form method="POST" onsubmit="return confirm('Confirm Deletion?');" action="delete1.php">
+<form method="POST" onsubmit="return confirm('Confirm Deletion?');" >
   Book Name:<br>
     <input id="txt" type="text" name="bookname">
   <br>
@@ -84,6 +84,10 @@ $connection = mysqli_connect("localhost", "root", "", "librarydatabase");
 if($connection === false){
     die("ERROR: Could not connect.".mysqli_connect_error());
 }
+else
+{
+//echo "Connected to Database";
+}
 // Attempt delete query execution
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $bname = $_POST['bookname'];
@@ -92,29 +96,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     //print("Elements collected<br>");
     //print_r($_POST);
     //print("<br>");
-  }
-else{
-    //echo "Elements could not be collected<br>";
-  }
-  $sql1 = "DELETE FROM librarydatabase.genre WHERE B_Id='$bid'";
-    
+     $sql1 = "DELETE FROM librarydatabase.genre WHERE B_Id='$bid'";   
 $sql2 = "DELETE FROM librarydatabase.b_location WHERE Boo_Id='$bid'";
 $sql = "DELETE FROM librarydatabase.novel WHERE Book_Id='$bid'";
 
 if(mysqli_query($connection, $sql1)){
     //echo "Records were deleted successfully.";
 } else{
-    //echo "ERROR: Could not able to execute $sql. " . mysqli_error($connection);
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($connection);
 }
 if(mysqli_query($connection, $sql2)){
    // echo "Records were deleted successfully.";
 } else{
-    //echo "ERROR: Could not able to execute $sql. " . mysqli_error($connection);
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($connection);
 }
 if(mysqli_query($connection, $sql)){
     //echo "Records were deleted successfully.";
 } else{
-    //echo "ERROR: Could not able to execute $sql. " . mysqli_error($connection);
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($connection);
 }
  $sql = "SELECT * FROM librarydatabase.novel";
   $sql1 = "SELECT * FROM librarydatabase.genre";
@@ -157,6 +156,11 @@ echo "<table style='border:2px solid black;'><tr><th>BOOK ID</th><th>BOOK GENRE<
 
 // Close connection
 mysqli_close($connection);
+  }
+else{
+   // echo "Elements could not be collected<br>";
+  }
+ 
 ?>
 </body>
 </html>

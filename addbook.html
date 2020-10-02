@@ -2,11 +2,11 @@
 <html>
 <head>
 <title>
-ADD</title>
+ADD BOOK</title>
 <style>
 body
 {
-	background-color:#254117;
+	background-color:lightseagreen;
 }
 form
 {
@@ -16,7 +16,7 @@ form
 }
 .container
 {
-	background-color:#437C17;
+	background-color:darkturquoise;
 	
   /*  position:fixed;
     top: 50%;
@@ -52,18 +52,29 @@ form
 	font-size:20px;
 	font-color:white;
 }
+.abc
+{
+	/*background-color:limegreen;
+	font-size:18px;*/
+	
+}
+.dfg
+{
+  border-radius: 50%;
+}
 </style>
 </head>
 <body>
 <center><div class="container">
 <h2>Details of New Book</h2>
 
-<form method="POST" action="database.php">
+<form method="POST" onsubmit="return confirm('Confirm Insertion?');" action="database.php">
   Book Name:<br>
     <input id="txt" type="text" name="bookname">
   <br>
-  Book Author<br>
-   <input id="txt" type="number" name="author" >
+  Book Author ID<br>
+   <input id="txt" type="number" name="author" > 
+   <a href="addauthor.html"><img class="dfg" src="add.jpg" alt="add" style="width:20px"></a>
    <br>
   Book ID<br>
    <input id="txt" type="number" name="bookid" >
@@ -101,11 +112,14 @@ form
    <br>
     Publisher<br>
    <input id="txt" type="number" name="publ" >
+
+    <a href="addpubl.html"><img class="dfg" src="add.jpg" alt="add" style="width:20px"></a>
    <br><br>
   <input class="sub" type="submit" value="Submit">
   <!-- MEMBERSHIP START AND END DATE-- WHEN THEY SEARCH FOR MEMBER, DOB, MEMBERSHIP END , PASSWORD-->
  
 </form> 
 </div></center>
+
 </body>
 </html>

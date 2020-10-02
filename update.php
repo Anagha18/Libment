@@ -1,7 +1,7 @@
 <?php
 
 $dbuser = "root";
-	$dbpass = "1234";
+	$dbpass = "";
 	$dbhost = "localhost:3306";
 	$dbname = "librarydatabase";
 

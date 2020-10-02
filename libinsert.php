@@ -1,6 +1,6 @@
 <?php
 	$dbuser = "root";
-	$dbpass = "1234";
+	$dbpass = "";
 	$dbhost = "localhost:3306";
 	$dbname = "librarydatabase";
 
@@ -12,12 +12,6 @@
 	else{
 		echo "NOT CONNECTED TO DATABASE<br>";
 	}
-
-
- 
-
-	
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$lid = $_POST['lid'];
 		$ln = $_POST['lname'];
@@ -49,15 +43,20 @@ else{
 		echo "Could not insert in<br>";
 	}
 	
-	
+	if($result1){
+		echo "inserted successfully<br>";
+	}
+	else{
+		echo "Could not insert in<br>";
+	}
 	$sql = "SELECT * FROM librarydatabase.librarian";
 	$sql1 = "SELECT * FROM librarydatabase.libr_location";
 	
 	$result = mysqli_query($connection,$sql);
-	$reult1 = mysqli_query($connetion,$sql1);
+	$result1 = mysqli_query($connection,$sql1);
 
 	
-echo "<table style='border:2px solid black;'><tr><th>LIBRARIAN ID</th><th>LIBRARIAN NAME</th><th>LIBRARIAN PASSWAORD</th><th>LIBRARIAN LOCATION</th></tr>";
+echo "<table style='border:2px solid black;'><tr><th>LIBRARIAN ID</th><th>LIBRARIAN NAME</th><th>LIBRARIAN PASSWAORD</th></tr>";
 	while($row = mysqli_fetch_array($result)){
 		echo "<tr>";
 		echo "<td>$row[Lib_Id]</td>";
@@ -67,8 +66,8 @@ echo "<table style='border:2px solid black;'><tr><th>LIBRARIAN ID</th><th>LIBRAR
 	}
 	echo "</table>";
 
-echo "</table>";
-echo "<table style='border:2px solid black;'><tr><th>LIBRARIAN ID</th><th>LIBRARIAN</tr>";
+
+echo "<table style='border:2px solid black;'><tr><th>LIBRARIAN ID</th><th>LIBRARIAN</th></tr>";
 	while($row = mysqli_fetch_array($result1)){
 		echo "<tr>";
 		echo "<td>$row[Li_Id]</td>";

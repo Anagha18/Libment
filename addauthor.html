@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+ADD AUTHOR</title>
+<style>
+body
+{
+	background-color:lightseagreen;
+}
+form
+{
+	font-size:32px;
+	font-family:"comic sans ms"
+	color:orange;
+}
+.container
+{
+	background-color:darkturquoise;
+	
+  /*  position:fixed;
+    top: 50%;
+    left: 50%;
+    width:40em;
+    height:55em;
+    margin-top: -25em; 
+    margin-left: -25em; 
+    border: 1px solid #ccc;
+/*set to a negative number 1/2 of your height*/
+  /*set to a negative number 1/2 of your width*/
+  margin-left: 20%;
+  margin-right: 20%;
+}
+#txt
+{
+	height:20px;
+    font-size:14pt;
+    font-family:"comic sans ms";
+}
+.sub
+{
+	height:50px;
+	width:200px;
+	color:white; 
+	background-color:red;
+	font-size:30px;
+	background-image: url("bk.jpeg");
+}
+.sel
+{
+	background-color:orange;
+	font-size:20px;
+	font-color:white;
+}
+</style>
+</head>
+<body>
+<center><div class="container">
+<h2>Details of New Author</h2>
+
+<form method="POST" action="addauth.php">
+  Author Name:<br>
+    <input id="txt" type="text" name="aname">
+  <br>
+  Author ID<br>
+      <input id="txt" type="number" name="aid" >
+<br>
+  Number of Books Written<br>
+   <input id="txt" type="number" name="abooks" >
+   <br>
+  <br>
+  <input class="sub" type="submit" value="Submit" >
+  <!-- MEMBERSHIP START AND END DATE-- WHEN THEY SEARCH FOR MEMBER, DOB, MEMBERSHIP END , PASSWORD-->
+ 
+</form> 
+</div></center>
+</body>
+</html>

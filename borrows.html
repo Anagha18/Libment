@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Borrows</title>
+<style>
+body
+{
+	background-color:lightseagreen;
+}
+form
+{
+	font-size:32px;
+	font-family:"comic sans ms"
+	color:blue;
+}
+.centered {
+  position: absolute;
+  top: 82%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.container
+{
+	background-color:darkturquoise;
+	
+  /*  position:fixed;
+    top: 50%;
+    left: 50%;
+    width:40em;
+    height:55em;
+    margin-top: -25em; 
+    margin-left: -25em; 
+    border: 1px solid #ccc;
+/*set to a negative number 1/2 of your height*/
+  /*set to a negative number 1/2 of your width*/
+  margin-left: 20%;
+  margin-right: 20%;
+}
+#txt
+{
+	height:20px;
+    font-size:14pt;
+    font-family:"comic sans ms";
+}
+.sub
+{
+	height:50px;
+	width:200px;
+	color:white; 
+	background-color:pink;
+	font-size:30px;
+	background-image: url("bk.jpeg");
+}
+.sel
+{
+	background-color:lightgreen;
+	font-size:20px;
+	font-color:white;
+}
+.abc
+{
+	background-color:limegreen;
+	font-size:18px;
+	border:none;
+	
+}<!-- mem id, book id, date issued, date due, -->
+</style>
+</head>
+<body>
+<center><div class="container">
+<h2>Book Borrowings</h2>
+
+<form method="POST" action="borrp.php">
+  Member ID<br>
+   <input id="txt" type="number" name="mid" > 
+   <br>
+  Periodical ID<br>
+   <input id="txt" type="number" name="bid" >
+   <br>
+  Date Issue<br>
+   <input id="txt" type="date" name="di" >
+   <BR>
+   Date Due:<br>
+   <input type="date" id="txt" name="dd">
+<BR>
+ Fine(if any):<br>
+   <input type="number" id="txt" name="bf">
+   <br><br>
+  <input class="sub" type="submit" value="Submit">
+  
+  <!--<button type="button" class="sub" onClick="return.php" >Return Book</button>-->
+  <!-- MEMBERSHIP START AND END DATE-- WHEN THEY SEARCH FOR MEMBER, DOB, MEMBERSHIP END , PASSWORD-->
+ 
+</form> 
+</div></center>
+</body>
+</html>
